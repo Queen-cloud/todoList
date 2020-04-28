@@ -12,6 +12,7 @@ filterOption.addEventListener("click", filterTodo);
 //Functions
 function addTodo(event) {
   event.preventDefault();
+ 
   //Todo Div
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
@@ -21,6 +22,7 @@ function addTodo(event) {
   newTodo.innerText = todoInput.value; //grab text value
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
+  
 
   //CHECK MARK BUTTON
   const completedButton = document.createElement("button");
@@ -63,6 +65,7 @@ function filterTodo(e) {
     //THE PROBLEM IS FROM HERE
     switch (e.target.value) {
       case "all":
+        todo.style.display = "flex";
         break;
       case "completed":
         if (todo.classList.contains("completed")) {
@@ -70,6 +73,13 @@ function filterTodo(e) {
         } else {
           todo.style.display = "none";
         }
+      break;
+      case "uncompleted":
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "none";
+
+        }
     }
   });
 }
+
